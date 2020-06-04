@@ -8,14 +8,14 @@ const  ListTodos = () => {
 
     // delete function
     const deleteTodo = (id) => {
-        axios.delete(`http://localhost:5000/todos/${id}`)
+        axios.delete(`https://postgres-todo.herokuapp.com/todos/${id}`)
         .then(response => {
             setTodos(todos.filter(todo => todo.todo_id != id))
         })
     }
 
     const getTodos = () => {
-        axios.get('http://localhost:5000/todos')
+        axios.get('https://postgres-todo.herokuapp.com/todos')
         .then((response) => {
             setTodos(response.data);
         })
@@ -40,7 +40,7 @@ const  ListTodos = () => {
                     {
                         todos.map(todo => (
                             <tr key={todo.todo_id}>
-                                <td>{todo.description}</td>
+                                <td className="align-middle">{todo.description}</td>
                                 <td><EditTodo todo = {todo} /></td>
                                 <td><button className="btn btn-danger" onClick={() => deleteTodo(todo.todo_id)}>Delete</button></td>
                             </tr>

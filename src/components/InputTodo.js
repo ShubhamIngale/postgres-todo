@@ -6,7 +6,7 @@ function InputTodo() {
 
   const onSubmitForm = (e) => {
       e.preventDefault();
-          axios.post('http://localhost:5000/todos', {
+          axios.post('https://postgres-todo.herokuapp.com/todos', {
               description
           })
           .then((response) => window.location = '/')
@@ -19,9 +19,10 @@ function InputTodo() {
       <form className="mt-5 d-flex" onSubmit={onSubmitForm}>
         <input
           type="text"
-          className="form-control"
+          className="form-control mr-2"
           value={description}
           onChange={(e) => setDescription(e.target.value)}
+          required
         />
         <button className="submit btn btn-success">Add</button>
       </form>

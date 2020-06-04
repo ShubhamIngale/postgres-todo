@@ -7,7 +7,7 @@ const EditTodo = ({ todo }) => {
 //   edit description fnctn
 const updateDescription = (e) => {
     e.preventDefault();
-    axios.put(`http://localhost:5000/todos/${todo.todo_id}`, {
+    axios.put(`https://postgres-todo.herokuapp.com/todos/${todo.todo_id}`, {
         description
     })
     .then((response) => {
